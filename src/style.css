@@ -1,0 +1,559 @@
+body {
+  background-color: lightblue;
+  overflow: hidden;
+}
+
+.background-img {
+  position: absolute;
+  top: -10px; left: -10px;
+  width: 110%;
+  height: 110%;
+  background: url("./assets/img/tumblr_ouoqb2qeYC1vrn2jlo2_r1_1280.png") no-repeat center center;
+  background-size: cover;
+  z-index: -999;
+}
+
+.background-img2 {
+  position: absolute;
+  top: 0px; left: 0px;
+  width: 100%;
+  height: 100%;
+  background: url("./assets/img/0dc5bce59985a86454df1a04b615888d.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: -999;
+}
+
+.background-img3 {
+  position: absolute;
+  top: 0px; left: 0px;
+  width: 105%;
+  height: 105%;
+  background: url("./assets/img/about.jpg") no-repeat center center;
+  background-size: cover; 
+  z-index: -999;
+  animation: kitaIdle 5s ease-in-out infinite alternate;
+}
+
+.aboutext {
+  position: absolute;
+  top: 150px;
+  left: 620px;
+  width: 500px;
+  min-height: 300px; 
+  padding: 20px 25px;
+  
+  background: #ffffffcc;       /* semi-transparent green */
+  border-radius: 20px;          /* rounded corners */
+  border: 3px solid #64ffd0aa;  /* subtle white border */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);  /* depth shadow */
+  
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #000000;                  /* text color */
+  -webkit-text-stroke: 0.1px #71fff1;
+  
+  white-space: normal;
+  word-wrap: break-word;
+
+  animation: oguriIdle 1s ease-in-out infinite alternate;
+}
+
+
+.kita-container {
+  position: absolute;
+  top: 50px;
+  left: 300px;
+  width: 100%;
+  height: 100%;
+}
+
+.kita {
+  width: 100%;
+  height: 100%;
+  background: url("./assets/img/chara_stand_1068_106802.png") no-repeat center center;
+  animation: kitaIdle 3s ease-in-out infinite alternate;
+  transform: scaleX(-1); 
+}
+
+@keyframes kitaIdle {
+  0% { transform: scaleX(-1) translateY(0px); }
+  50% { transform: scaleX(-1) translateY(-5px); }
+  100% { transform: scaleX(-1) translateY(0px); }
+}
+
+.kita-talk {
+  animation: kitaTalk 2.5s ease-in-out forwards;
+  background: url("./assets/img/kitasantalk.png") no-repeat center center;
+}
+
+@keyframes kitaTalk {
+  0%   { transform: scaleX(-1) translateY(0); }    /* start idle pos */
+  6%  { transform: scaleX(-1) translateY(-10px); } /* bop up */
+  12%  { transform: scaleX(-1) translateY(0); }    /* back down */
+  80%  { transform: scaleX(-1) translateY(0); }    /* hold talking pose */
+  100% { transform: scaleX(-1) translateY(0); }    /* return to idle */
+}
+
+.oguri {
+  position: absolute;
+  top: 40px; 
+  left: -50px; 
+  width: 100%;  
+  height: 100%;
+  background: url("./assets/img/noFilter.webp") no-repeat center center;
+  background-size: contain;
+  animation: oguriIdle 3s ease-in-out infinite alternate;
+}
+
+@keyframes oguriIdle {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; /* height where Oguri disappears */
+  background: url("./assets/img/0dc5bce59985a86454df1a04b615888d.jpg") no-repeat center center;
+  background-size: cover;
+  z-index: 2; /* above Oguri */
+
+  clip: rect(503px, 2000px, 1600px, 0px);
+}
+
+.oguri-talk {
+  position: absolute;
+  top: 40px; 
+  left: -50px; 
+  width: 100%;  
+  height: 100%;
+  
+  animation: oguriTalk 2.5s ease-in-out forwards;
+}
+
+@keyframes oguriTalk {
+  0%, 12%, 80%, 100% { transform: translateY(0); } 
+  6% { transform: translateY(-20px); } 
+}
+
+.food1 {
+  top: 470px; 
+  left: 180px; 
+  background: url("./assets/img/dish.webp") no-repeat center center;
+}
+
+.food2 {
+  top: 485px; 
+  left: 720px; 
+  background: url("./assets/img/ramen.webp") no-repeat center center;
+}
+
+.food3 {
+  top: 500px; 
+  left: 290px; 
+  background: url("./assets/img/curry.webp") no-repeat center center;
+}
+
+.food4 {
+  top: 450px; 
+  left: 620px; 
+  background: url("./assets/img/cream.webp") no-repeat center center;
+}
+
+.food5 {
+  top: 455px; 
+  left: 380px; 
+  background: url("./assets/img/tofu.webp") no-repeat center center;
+}
+
+.food1,
+.food2,
+.food3,
+.food4,
+.food5 {
+  position: absolute;
+  width: 12%;  
+  height: 12%;
+  background-size: contain;
+  z-index: 3;
+  animation: foodshit 1s ease-in-out infinite alternate;
+}
+
+/* --- Shake on hover --- */
+.food1:hover,
+.food2:hover,
+.food3:hover,
+.food4:hover,
+.food5:hover {
+  animation: shake 0.5s ease;
+}
+
+/* Shake keyframes */
+@keyframes shake {
+  0%   { transform: translate(0, 0); }
+  25%  { transform: translate(-5px, 0); }
+  50%  { transform: translate(5px, 0); }
+  75%  { transform: translate(-5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+/* --- Tooltip text --- */
+
+.food1::after {
+  content: "G1 plate"; 
+}
+
+.food2::after {
+  content: "Whole garlic"; 
+}
+
+.food3::after {
+  content: "Vegetable curry"; 
+}
+
+.food4::after {
+  content: "Carrot-flavored strawberry ice cream"; 
+}
+
+.food5::after {
+  content: "attack! Mapa Tofu of hell"; 
+}
+
+.food1::after,
+.food2::after,
+.food3::after,
+.food4::after,
+.food5::after {
+  position: absolute;
+  bottom: 75px; /* below the food image */
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Show text on hover */
+.food1:hover::after,
+.food2:hover::after,
+.food3:hover::after,
+.food4:hover::after,
+.food5:hover::after {
+  opacity: 1;
+}
+
+@keyframes foodshit {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+.textbox {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    min-width: 500px;
+    background:  #ffffffcf; /* light Umamusume-ish gradient */
+    border: 2px solid #04da00; /* soft brown border */
+    border-radius: 160px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3); /* shadow for depth */
+    padding: 15px 40px 15px 60px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #653511;
+    font-weight: bolder;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+
+    /* New/important */
+    height: auto;           /* allow height to adjust */
+    min-height: 100px;       /* optional: ensures it’s not too small */
+    white-space: normal;    /* wrap long text */
+    word-wrap: break-word;  /* break very long words if needed */
+}
+
+.textbox.visible {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+.textbox2 {
+    position: absolute;
+    top: 42%;               /* middle of the screen */
+    right: 200px;            /* a bit from the right edge */
+    transform: translateY(20px) translateX(0);
+    min-width: 250px;
+    max-width: 250px;
+    background: #ffffffcf;
+
+    border-radius: 20px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+    padding: 15px 20px;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 18px;
+    line-height: 1.4;
+    color: #653511;
+    font-weight: bolder;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* visible state */
+.textbox2.visible {
+    opacity: 1;
+    transform: translateY(-50%) translateX(0);
+}
+
+h1 {
+    display: block;
+    position: relative;
+    text-align: center;
+    color: rgb(195, 131, 227);
+    -webkit-text-stroke: 3px #ffffff;
+    font-family: sans-serif;
+    padding: 20px 0px 0px 0px;
+}
+
+p {
+  line-height: 1.8;
+  -webkit-text-stroke: 0.1px rgb(0, 0, 0);
+  padding: 0 0 0 20px;
+  color: #222;
+}
+
+/* Headline */
+.headline {
+  position: absolute;
+  top: 90px;
+  left: 50px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #fcbf3a;
+  text-shadow: 2px 2px 5px #000, 0 0 20px #ffb300;
+  font-family: 'Segoe UI', sans-serif;
+  font-style: italic;
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards 0.5s; /* animate in */
+}
+
+.headline2 {
+  position: absolute;
+  top: 90px;
+  left: 350px;
+  font-size: 4rem;
+  font-weight: 900;
+  color: #f76fae;
+  text-shadow: 2px 2px 5px #000, 0 0 20px #ff80ff;
+  font-family: 'Segoe UI', sans-serif;
+  font-style: italic;
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards 0.5s; /* animate in */
+}
+
+/* Description with cloudy aura */
+.description {
+  position: absolute;
+  top: 350px;
+  left: 30px;
+  font-size: 1.3rem;
+  font-weight: bolder;
+  font-family: 'Times New Roman', Times, serif;
+  line-height: 1.8;
+  color: #000000;
+  max-width: 500px;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards 1s; /* delayed after headline */
+
+  text-shadow: 
+    -1px -1px 2px #fff,
+     1px -1px 2px #fff,
+    -1px  1px 2px #fff,
+     1px  1px 2px #fff, /* tight white outline */
+     0 0 8px  #fff,
+     0 0 15px #fff,
+     0 0 25px rgba(255,255,255,0.9),
+     0 0 40px rgba(255,255,255,0.8);
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.top-nav {
+  position: relative;
+  top: 10px; /* distance from the very top */
+  left: 0px;
+  width: 67%; /* slightly inset */
+  height: 80px;
+  margin: 0 auto; /* center horizontally */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  background: linear-gradient(180deg, #ffffff 0%, #d3f6ff 100%);
+  border: 3px solid #4ec3ff; /* border on all sides */
+  border-radius: 20px; /* fully rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+
+  z-index: 1000;
+  overflow: hidden;
+}
+
+.top-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%; /* left portion */
+  height: 100%;
+
+  background-image: 
+    repeating-linear-gradient(45deg, #7edfff 0 10px, transparent 10px 20px),
+    repeating-linear-gradient(-45deg, #7edfff 0 10px, transparent 10px 20px);
+
+  background-blend-mode: lighten; /* ensures intersections don’t darken */
+  
+  /* fade diamonds into background */
+  mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  
+  pointer-events: none;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  opacity: 0.3; /* subtle effect */
+}
+
+.top-nav button {
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.homebtn {
+  position: relative;
+  width: 120px;   
+  height: 50px;
+  right: 100px;
+  bottom: 1px;
+}
+
+.menubtn {
+  position: relative;
+  width: 120px;   
+  height: 50px;
+  right: 0px;
+  bottom: 1px;
+}
+
+.aboutbtn{
+  position: relative;
+  width: 120px;   
+  height: 50px;
+  left: 100px;
+  bottom: 1px;
+}
+
+.homebtn,
+.menubtn,
+.aboutbtn {
+  display: inline-block;
+  padding: 10px 30px;
+  border: 2px solid #006400; /* dark green outline */
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  background: linear-gradient(180deg, #94fd94 0%, #21d921 100%); /* light-to-dark green gradient */
+  box-shadow: 0 4px 0 #00000067, 0 6px 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.homebtn:hover,
+.menubtn:hover,
+.aboutbtn:hover {
+  transform: translateY(-3px) scale(1.05); /* slightly bigger and lifted */
+  background: linear-gradient(180deg, #b3ffb3 0%, #33cc33 100%); /* brighter gradient on hover */
+  box-shadow: 0 6px 0 #004d00, 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+.homebtn.active,
+.menubtn.active,
+.aboutbtn.active {
+  background: linear-gradient(180deg, #7be495 0%, #13b441 100%);
+  transform: translateY(2px) scale(1); /* press effect */
+  box-shadow: 0 2px 0 #003300, 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.umacafe {
+  position: fixed;
+  top: 67px;
+  right: 725px;
+  width: 500px;     
+  height: 500px;     
+  background: url("./assets/img/umacafe.png") no-repeat center center;
+  background-size: contain; 
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInUp 1s forwards 0.5s; /* animate in */ 
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+
+    background:
+        url('./assets/img/ELCN_walk_r.gif') -20px bottom / auto 50% no-repeat,  /* El Condor Pasa */
+        url('./assets/img/GRWN_walk_r.gif') 215px bottom / auto 50% no-repeat,  /* Grass Wonder */
+        url('./assets/img/KIHL_walk_r.gif') 460px bottom / auto 50% no-repeat,  /* King Halo */
+        url('./assets/img/SESK_walk_r.gif') 700px bottom / auto 50% no-repeat,  /* Seiyun Sky */
+        url('./assets/img/SPWE_walk_r.gif') 950px bottom / auto 50% no-repeat,  /* Special Week */
+        linear-gradient(to right, 
+            #ff4500 0% 20%,   /* El Condor Pasa */
+            #6a5acd 20% 40%,  /* Grass Wonder */
+            #228b22 40% 60%,  /* King Halo */
+            #8fe6d5 60% 80%,  /* Seiyun Sky */
+            #8000ff 80% 100%  /* Special Week */
+        );
+}
+
+@keyframes slideFull {
+    0%   { left: -100%; }
+    100% { left: 100%; }   
+}
+
+
